@@ -1,0 +1,51 @@
+<ion-view view-title="{{::book.title}}"  hide-back-button="true">
+
+ <ion-nav-bar class="bar-light">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            
+            <ion-nav-buttons side="left">
+                <a class="button button-calm button-icon button-clear ion-ios-cart-outline " href="#/app/cart">
+                <span class="badge badge-calm"> 
+                {{::book_list.length}}
+                </span>
+                </a>
+            </ion-nav-buttons>
+
+            <ion-nav-buttons side="right">
+                <!-- <button ng-show="isAuthenticated" class="button button-icon button-clear ion-unlocked" ng-click="logout()">
+                </button> -->
+                <a class="button button-calm button-icon button-clear ion-ios-barcode-outline"     href="#/app/purchases">
+                </a>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+    <ion-content>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img ng-src="{{::book.author_image}}">
+                <h2>{{::book.title}}</h2>
+                
+                <p>{{::book.author}}</p>
+            </div>
+            <div class="item item-body">
+                <img class="full-image" ng-src="{{::book.image}}">
+                <p>
+                    {{::book.long_description}}
+                </p>
+                <p class="row">
+                    <label class="col">
+                        Expiry : <i>{{::book.release_date | date:'yyyy-MM-dd'}}</i>
+                    </label>
+                    <label class="col">
+                        Price :
+                        <label class="subdued">₹ {{::book.price}}</label>
+                    </label>
+                </p>
+                <button class="button button-assertive button-block" ng-click="addToCart()"> 
+                	<i class="icon ion-checkmark"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

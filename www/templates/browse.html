@@ -1,0 +1,23 @@
+<ion-view view-title="Browse Items"  hide-back-button="true">
+    <ion-content>
+        <ion-list>
+            <div ng-repeat="book in books track by $index" class="row responsive-sm" ng-if="$index % 2 == 0">
+
+                <ion-item class="col-50" ng-repeat="i in [$index, $index + 1]" ng-if="books[i] != null" ng-href="#/app/book/{{::books[i]._id}}">
+
+                    <div class="item-thumbnail-left">
+                        <img ng-src="{{::books[i].image}}">
+                        {{::books[i].title}}  
+                        <p>{{::books[i].author}}</p>
+                        <span class="item-note">
+                              {{::books[i].release_date | date:'yyyy-MM-dd'}}
+                       </span>
+                       <p>₹ {{::books[i].price}} </p>
+                        
+                    </div>
+                </ion-item>
+
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>
